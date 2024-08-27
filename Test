@@ -1,0 +1,66 @@
+#include <iostream>
+#include <ctime>
+
+ using namespace std;
+int main() {
+  int battleship[11][11];
+  srand(time(0));
+  int random = rand() % 101;
+  int shots = 1;
+  int game = 0;
+  int rowd = 0;
+  int cold = 0;
+  int row = 0;
+  int col = 0;
+  int pickrow = 0;
+  int pickcol = 0;
+  int z = 1;
+  int x = 1;
+  int y = 1;
+  int pick = 0;
+  for(x = 1; x <= 10; x++){
+    for(y = 1; y <= 10; y++){
+      battleship[x][y] = z;
+      z++;
+      if(battleship[x][y] == random){
+        row = x;
+        col = y;
+      }
+    }
+  }
+  for(x = 1; x <= 10; x++)
+    {
+      cout << "" << endl;
+    for(y = 1; y <= 10; y++){
+      cout << battleship[x][y] << " ";
+      if(x == 1){
+        cout << " ";
+      }
+    }  
+    }
+while(game == 0){
+  cout << "\n" << "\n";
+  cout << "Where do you think the location is?" << endl;
+  cin >> pick;
+  for(x = 1; x <= 10; x++){
+    for(y=1; y <= 10; y++){
+      if(battleship[x][y] == pick){
+        pickrow = x;
+        pickcol = y;
+      }
+    }
+  }
+  if(pick == random){
+    cout << "You win!" << endl;
+    game = 1;
+    cout << "It took you " << shots << " shots to win!" << endl;
+  }
+  else{
+    rowd = abs(pickrow - row);
+    cold = abs(pickcol - col);
+    cout << "Your shot is " << rowd + cold << " space(s) from the target" << endl;
+    shots++;
+  }
+  }
+  
+}
