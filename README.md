@@ -1,0 +1,1 @@
+This project is just a personal practice when I was teaching myself c++. I decided to recreate a game similar to battleship, which made a grid and you had to find the one spot where the ship was located.
